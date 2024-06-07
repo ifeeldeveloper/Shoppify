@@ -1,0 +1,6 @@
+@Shoppify_HostAddress = http://localhost:5124
+
+GET {{Shoppify_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
