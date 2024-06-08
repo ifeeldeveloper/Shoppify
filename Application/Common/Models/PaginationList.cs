@@ -15,7 +15,7 @@ namespace Application.Common.Models
         public int TotalPages { get; set; }
         public int TotalCount { get; set; }
         public bool HasPreviousPage => PageNumber > 1;
-        public bool HasNextPage => PageNumber < TotalPages;
+        public bool HasNextPage => PageNumber > TotalPages;
 
         public PaginationList(List<T> items, int totalCount, int totalPages) 
         {

@@ -9,7 +9,7 @@ namespace Application.Common.Mappings
 {
     public static class MappingExtensions
     {
-        public static Task<PaginationList<TDestination>> PaginationListAsync<TDestination>(IQueryable<TDestination> source, int pageNumber, int pageSize)
+        public static Task<PaginationList<TDestination>> PaginationListAsync<TDestination>(this IQueryable<TDestination> source, int pageNumber, int pageSize)
             => PaginationList<TDestination>.CreatePaginationAsync(source, pageNumber, pageSize);
     }
 }

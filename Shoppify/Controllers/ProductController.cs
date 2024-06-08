@@ -1,5 +1,7 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Models;
 using Application.Products.Commands.CreateProduct;
+using Application.Products.Queries;
 using Domain;
 using Infrastructure.Persistance;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +22,14 @@ namespace Shoppify.Controllers
         }
         // GET: api/<ProductController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<PaginationList<ProductVm>>> Get([FromQuery] GetProducts query)
         {
-            return new string[] { "value1", "value2" };
+            var result = await Mediator.Send(query);
+            return result;
         }
 
         // GET api/<ProductController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]   
         public string Get(int id)
         {
             return "value";
